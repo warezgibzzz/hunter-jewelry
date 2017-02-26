@@ -1,0 +1,30 @@
+Hunter\EntityBundle\Entity\ProductCategory:
+    type: entity
+    table: product_categories
+    repositoryClass: Hunter\EntityBundle\Repository\ProductCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+        isActive:
+            type: boolean
+            options:
+                default: 0
+    indexes:
+        search_idx:
+            columns: slug
+    lifecycleCallbacks: {  }

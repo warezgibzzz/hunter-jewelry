@@ -1,0 +1,30 @@
+Hunter\EntityBundle\Entity\PostCategory:
+    type: entity
+    table: post_categories
+    repositoryClass: Hunter\EntityBundle\Repository\PostCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        isActive:
+            type: boolean
+            options:
+                default: 0
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - title
+    indexes:
+        search_idx:
+            columns: slug
+    lifecycleCallbacks: {  }

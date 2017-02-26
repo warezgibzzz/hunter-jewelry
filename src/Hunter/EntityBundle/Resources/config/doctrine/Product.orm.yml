@@ -1,0 +1,41 @@
+Hunter\EntityBundle\Entity\Product:
+    type: entity
+    table: products
+    repositoryClass: Hunter\EntityBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - name
+        isActive:
+            type: boolean
+            options:
+                default: 0
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    indexes:
+        search_idx:
+            columns: slug
+    lifecycleCallbacks: {  }

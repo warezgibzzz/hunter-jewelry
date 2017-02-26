@@ -15,7 +15,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
+
+            // Deps
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
+            // App
             new Hunter\EntityBundle\HunterEntityBundle(),
             new Hunter\FrontendBundle\HunterFrontendBundle(),
             new Hunter\BackendBundle\HunterBackendBundle(),

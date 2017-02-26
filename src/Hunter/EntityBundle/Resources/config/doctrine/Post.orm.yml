@@ -1,0 +1,50 @@
+Hunter\EntityBundle\Entity\Post:
+    type: entity
+    table: posts
+    repositoryClass: Hunter\EntityBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        seoTitle:
+            type: string
+            length: 255
+            unique: true
+            column: seo_title
+        body:
+            type: text
+        seoDesc:
+            type: text
+            column: seo_desc
+        slug:
+            type: string
+            length: 128
+            gedmo:
+                slug:
+                    fields:
+                        - title
+        isActive:
+            type: boolean
+            options:
+                default: 0
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    indexes:
+        search_idx:
+            columns: slug
+    lifecycleCallbacks: {  }
