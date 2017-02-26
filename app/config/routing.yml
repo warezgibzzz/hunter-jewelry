@@ -1,3 +1,15 @@
+hunter_backend:
+    resource: "@HunterBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hunter_frontend:
+    resource: "@HunterFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hunter_entity:
+    resource: "@HunterEntityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

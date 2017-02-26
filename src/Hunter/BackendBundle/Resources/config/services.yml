@@ -1,0 +1,4 @@
+services:
+#    hunter_backend.example:
+#        class: Hunter\BackendBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
