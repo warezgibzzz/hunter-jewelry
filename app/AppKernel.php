@@ -19,6 +19,9 @@ class AppKernel extends Kernel
             // Deps
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
 
             // App
             new Hunter\EntityBundle\HunterEntityBundle(),

@@ -1,3 +1,7 @@
 hunter_backend_homepage:
     path:     /
     defaults: { _controller: HunterBackendBundle:Default:index }
+
+hunter_backend_product:
+    resource: "@HunterBackendBundle/Resources/config/routing/product.yml"
+    prefix:   /products

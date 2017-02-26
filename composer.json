@@ -34,11 +34,15 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "twig/twig": "^1.0||^2.0",
+        "twig/twig": "^1.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "stof/doctrine-extensions-bundle": "^1.2",
         "symfony/assetic-bundle": "^2.8",
-        "leafo/scssphp": "^0.6.7"
+        "leafo/scssphp": "^0.6.7",
+        "braincrafted/bootstrap-bundle": "^2.2",
+        "components/jquery": "^3.1",
+        "twbs/bootstrap-sass": "^3.3",
+        "sonata-project/seo-bundle": "^2.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

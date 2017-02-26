@@ -1,0 +1,4 @@
+braincrafted_bootstrap:
+    css_preprocessor: scssphp
+    assets_dir: '%kernel.root_dir%/../vendor/twbs/bootstrap-sass/assets'
+    jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.js'

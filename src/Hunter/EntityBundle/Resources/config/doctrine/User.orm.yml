@@ -1,0 +1,11 @@
+Hunter\EntityBundle\Entity\User:
+    type: entity
+    table: users
+    repositoryClass: Hunter\EntityBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

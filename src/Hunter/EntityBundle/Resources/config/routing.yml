@@ -1,3 +1,5 @@
+
+
 hunter_entity_homepage:
     path:     /
     defaults: { _controller: HunterEntityBundle:Default:index }

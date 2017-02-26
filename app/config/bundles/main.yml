@@ -1,4 +1,6 @@
 imports:
     - { resource: stof_doctrine_extensions.yml }
+    - { resource: braincrafted_bootstrap.yml }
+    - { resource: fos_user.yml }
     - { resource: symfony_assetic.yml }
 #    - { resource: symfony_workflow.yml }
