@@ -1,2 +1,4 @@
 imports:
     - { resource: stof_doctrine_extensions.yml }
+    - { resource: symfony_assetic.yml }
+#    - { resource: symfony_workflow.yml }

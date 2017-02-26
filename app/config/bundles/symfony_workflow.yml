@@ -1,0 +1,28 @@
+framework:
+      workflows:
+          product_status:
+              marking_store:
+                  type: multiple_state
+                  arguments:
+                      - state
+              supports:
+                  - AppBundle\Entity\PullRequest
+              places:
+                  - opened
+                  - closed
+                  - needs_review
+                  - reviewed
+                  - merged
+              transitions:
+                  feedback:
+                      from: opened
+                      to:   needs_review
+                  review:
+                      from: [opened, needs_review]
+                      to:   reviewed
+                  merge:
+                      from: reviewed
+                      to:   merged
+                  close:
+                      from: [opened, needs_review, reviewed]
+                      to:   closed
