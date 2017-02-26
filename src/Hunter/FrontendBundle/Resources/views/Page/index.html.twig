@@ -25,6 +25,12 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet">
 
     {% block stylesheets %}
+        {% stylesheets
+        'bundles/hunterfrontend/sass/bootstrap.scss'
+        'bundles/hunterfrontend/sass/style.scss'
+        filter='scssphp,cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
         {% stylesheets 'bundles/hunterfrontend/css/*' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
@@ -51,7 +57,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-xs-2">
-                    <div id="fh5co-logo"><a href="index.html">Shop.</a></div>
+                    <div id="fh5co-logo"><a href="{{ url('hunter_frontend_homepage') }}">Hunter Jewelry</a></div>
                 </div>
                 <div class="col-md-6 col-xs-6 text-center menu-1">
                     <ul>
@@ -221,7 +227,8 @@
             <div class="row">
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-1.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-1.jpg') }});">
                             <div class="inner">
                                 <p>
                                     <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -237,7 +244,8 @@
                 </div>
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-2.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-2.jpg') }});">
                             <span class="sale">Sale</span>
                             <div class="inner">
                                 <p>
@@ -254,7 +262,8 @@
                 </div>
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-3.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-3.jpg') }});">
                             <div class="inner">
                                 <p>
                                     <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -272,7 +281,8 @@
             <div class="row">
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-4.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-4.jpg') }});">
                             <div class="inner">
                                 <p>
                                     <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -288,7 +298,8 @@
                 </div>
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-5.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-5.jpg') }});">
                             <div class="inner">
                                 <p>
                                     <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -304,7 +315,8 @@
                 </div>
                 <div class="col-md-4 text-center animate-box">
                     <div class="product">
-                        <div class="product-grid" style="background-image:url({{ asset('bundles/hunterfrontend/images/product-6.jpg') }});">
+                        <div class="product-grid"
+                             style="background-image:url({{ asset('bundles/hunterfrontend/images/product-6.jpg') }});">
                             <div class="inner">
                                 <p>
                                     <a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -381,7 +393,8 @@
     </div>
 
 
-    <div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url({{ asset('bundles/hunterfrontend/images/img_bg_5.jpg') }});">
+    <div id="fh5co-counter" class="fh5co-bg fh5co-counter"
+         style="background-image:url({{ asset('bundles/hunterfrontend/images/img_bg_5.jpg') }});">
         <div class="container">
             <div class="row">
                 <div class="display-t">
@@ -531,15 +544,14 @@
 
 {% block javascript %}
     {% javascripts
-        '@HunterFrontendBundle/Resources/public/js/jquery.min.js'
-        '@HunterFrontendBundle/Resources/public/js/jquery.easing.1.3.js'
-        '@HunterFrontendBundle/Resources/public/js/bootstrap.min.js'
-        '@HunterFrontendBundle/Resources/public/js/jquery.waypoints.min.js'
-        '@HunterFrontendBundle/Resources/public/js/owl.carousel.min.js'
-        '@HunterFrontendBundle/Resources/public/js/jquery.countTo.js'
-        '@HunterFrontendBundle/Resources/public/js/jquery.flexslider-min.js'
-        '@HunterFrontendBundle/Resources/public/js/main.js'
-    %}
+    '@HunterFrontendBundle/Resources/public/js/jquery.min.js'
+    '@HunterFrontendBundle/Resources/public/js/jquery.easing.1.3.js'
+    '@HunterFrontendBundle/Resources/public/js/bootstrap.min.js'
+    '@HunterFrontendBundle/Resources/public/js/jquery.waypoints.min.js'
+    '@HunterFrontendBundle/Resources/public/js/owl.carousel.min.js'
+    '@HunterFrontendBundle/Resources/public/js/jquery.countTo.js'
+    '@HunterFrontendBundle/Resources/public/js/jquery.flexslider-min.js'
+    '@HunterFrontendBundle/Resources/public/js/main.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
