@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
-
+    {% block stylesheets %}
+        {% stylesheets 'bundles/hunterbackend/sass/*' filter='scssphp,cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
     <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
     {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
 </head>
-<body>
-<nav class="navbar navbar-default">
+<body class="backend">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -26,12 +30,13 @@
             <a class="navbar-brand" href="{{ url('hunter_frontend_homepage') }}">Hunter Jewelry</a>
         </div>
         <div class="collapse navbar-collapse" id="backend-navbar-collapse">
-
+            {{ knp_menu_render('navbar', { 'style': 'navbar-right' }) }}
         </div>
     </div>
 </nav>
 <div class="container-fluid">
-
+    {% block page %}
+    {% endblock %}
 </div>
 
 <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
