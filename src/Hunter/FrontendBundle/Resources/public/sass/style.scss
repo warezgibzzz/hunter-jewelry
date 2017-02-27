@@ -564,8 +564,7 @@ h1, h2, h3, h4, h5, h6, figure {
   height: 800px;
 
   background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
+  background: no-repeat top center;
   position: relative;
   float: left;
   width: 100%;
@@ -729,7 +728,7 @@ h1, h2, h3, h4, h5, h6, figure {
       color: rgba(255, 255, 255, 1);
     }
     h1 {
-      margin-bottom: 0px;
+      margin-bottom: 0;
       font-size: 60px;
       line-height: 1.5;
       text-transform: uppercase;
@@ -757,9 +756,9 @@ h1, h2, h3, h4, h5, h6, figure {
       text-transform: uppercase;
       &:hover {
         background: $brand-primary !important;
-        -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
-        -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
-        box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
+        -webkit-box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
+        -moz-box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
+        box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
       }
     }
     .form-inline {
@@ -805,9 +804,9 @@ h1, h2, h3, h4, h5, h6, figure {
     height: 70px;
     text-align: center;
     background: $brand-primary;
-    -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
     margin-bottom: 20px;
     i {
       height: 70px;
@@ -891,8 +890,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 40px;
   .product-grid {
     background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
+    background: no-repeat top center;
     position: relative;
     height: 350px;
     margin-bottom: 20px;
@@ -952,11 +950,11 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   &:hover, &:focus {
     .product-grid {
-      -webkit-box-shadow: 0px 10px 24px -7px rgba(0, 0, 0, 0.35);
-      -moz-box-shadow: 0px 10px 24px -7px rgba(0, 0, 0, 0.35);
-      -ms-box-shadow: 0px 10px 24px -7px rgba(0, 0, 0, 0.35);
-      -o-box-shadow: 0px 10px 24px -7px rgba(0, 0, 0, 0.35);
-      box-shadow: 0px 10px 24px -7px rgba(0, 0, 0, 0.35);
+      -webkit-box-shadow: 0 10px 24px -7px rgba(0, 0, 0, 0.35);
+      -moz-box-shadow: 0 10px 24px -7px rgba(0, 0, 0, 0.35);
+      -ms-box-shadow: 0 10px 24px -7px rgba(0, 0, 0, 0.35);
+      -o-box-shadow: 0 10px 24px -7px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 10px 24px -7px rgba(0, 0, 0, 0.35);
     }
     .inner {
       opacity: 1;
@@ -1038,15 +1036,14 @@ h1, h2, h3, h4, h5, h6, figure {
     }
     ul {
       padding: 0;
-      margin: 0;
-      margin-bottom: 3em;
+      margin: 0 0 3em;
       li {
         list-style: none;
         margin-bottom: 20px;
         position: relative;
         padding-left: 30px;
         &:before {
-          font-family: 'icomoon';
+          font-family: 'icomoon', sans-serif;
           position: absolute;
           top: 0;
           left: 0;
@@ -1300,7 +1297,6 @@ h1, h2, h3, h4, h5, h6, figure {
   background: lighten($brand-black, 0%);
   top: 0;
   right: 0;
-  top: 0;
   bottom: 0;
   padding: 45px 40px 40px 40px;
   overflow-y: auto;

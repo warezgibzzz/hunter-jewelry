@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
             // App
             new Hunter\EntityBundle\HunterEntityBundle(),
