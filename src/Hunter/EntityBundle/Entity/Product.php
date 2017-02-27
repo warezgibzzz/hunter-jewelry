@@ -22,6 +22,25 @@ class Product
      */
     private $description;
 
+    /**
+     * @var string
+     */
+    private $slug;
+
+    /**
+     * @var boolean
+     */
+    private $isActive = false;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -80,26 +99,6 @@ class Product
     {
         return $this->description;
     }
-    /**
-     * @var string
-     */
-    private $slug;
-
-    /**
-     * @var boolean
-     */
-    private $isActive = 0;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
 
     /**
      * Set slug

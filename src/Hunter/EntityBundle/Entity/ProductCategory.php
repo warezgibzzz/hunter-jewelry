@@ -17,6 +17,16 @@ class ProductCategory
      */
     private $name;
 
+    /**
+     * @var string
+     */
+    private $slug;
+
+    /**
+     * @var boolean
+     */
+    private $isActive = false;
+
 
     /**
      * Get id
@@ -51,16 +61,6 @@ class ProductCategory
     {
         return $this->name;
     }
-    /**
-     * @var string
-     */
-    private $slug;
-
-    /**
-     * @var boolean
-     */
-    private $isActive = 0;
-
 
     /**
      * Set slug

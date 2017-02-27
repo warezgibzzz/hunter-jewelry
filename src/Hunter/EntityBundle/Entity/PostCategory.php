@@ -17,6 +17,16 @@ class PostCategory
      */
     private $title;
 
+    /**
+     * @var boolean
+     */
+    private $isActive = false;
+
+    /**
+     * @var string
+     */
+    private $slug;
+
 
     /**
      * Get id
@@ -51,16 +61,6 @@ class PostCategory
     {
         return $this->title;
     }
-    /**
-     * @var boolean
-     */
-    private $isActive = 0;
-
-    /**
-     * @var string
-     */
-    private $slug;
-
 
     /**
      * Set isActive

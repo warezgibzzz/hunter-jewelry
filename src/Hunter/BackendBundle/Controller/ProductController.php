@@ -3,8 +3,10 @@
 namespace Hunter\BackendBundle\Controller;
 
 use Hunter\EntityBundle\Entity\Product;
+use Hunter\EntityBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Product controller.
@@ -15,6 +17,7 @@ class ProductController extends Controller
     /**
      * Lists all product entities.
      *
+     * @Template()
      */
     public function indexAction()
     {
@@ -22,20 +25,23 @@ class ProductController extends Controller
 
         $products = $em->getRepository('HunterEntityBundle:Product')->findAll();
 
-        return $this->render('product/index.html.twig', array(
+        return [
             'products' => $products,
-        ));
+        ];
     }
 
     /**
      * Creates a new product entity.
+     *
+     * @Template()
+     *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function newAction(Request $request)
     {
         $product = new Product();
-        $form = $this->createForm('Hunter\EntityBundle\Form\ProductType', $product);
+        $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -46,32 +52,38 @@ class ProductController extends Controller
             return $this->redirectToRoute('shop_show', array('id' => $product->getId()));
         }
 
-        return $this->render('product/new.html.twig', array(
+        return [
             'product' => $product,
             'form' => $form->createView(),
-        ));
+        ];
     }
 
     /**
      * Finds and displays a product entity.
+     *
+     * @Template()
+     *
      * @param Product $product
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return array
      */
     public function showAction(Product $product)
     {
         $deleteForm = $this->createDeleteForm($product);
 
-        return $this->render('product/show.html.twig', array(
+        return [
             'product' => $product,
             'delete_form' => $deleteForm->createView(),
-        ));
+        ];
     }
 
     /**
      * Displays a form to edit an existing product entity.
+     *
+     * @Template()
+     *
      * @param Request $request
      * @param Product $product
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function editAction(Request $request, Product $product)
     {
@@ -85,11 +97,11 @@ class ProductController extends Controller
             return $this->redirectToRoute('shop_edit', array('id' => $product->getId()));
         }
 
-        return $this->render('product/edit.html.twig', array(
+        return [
             'product' => $product,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+        ];
     }
 
     /**
@@ -124,7 +136,6 @@ class ProductController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('shop_delete', array('id' => $product->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

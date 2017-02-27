@@ -1,0 +1,6 @@
+backend:
+  navbar:
+    toggle_nav: Показать меню
+    menu:
+      dashboard: Админка
+      products: Товары

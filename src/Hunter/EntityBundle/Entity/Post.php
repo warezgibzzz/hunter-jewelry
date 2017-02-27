@@ -32,6 +32,26 @@ class Post
      */
     private $seoDesc;
 
+    /**
+     * @var string
+     */
+    private $slug;
+
+    /**
+     * @var boolean
+     */
+    private $isActive = false;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
+
 
     /**
      * Get id
@@ -138,26 +158,6 @@ class Post
     {
         return $this->seoDesc;
     }
-    /**
-     * @var string
-     */
-    private $slug;
-
-    /**
-     * @var boolean
-     */
-    private $isActive = 0;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
 
     /**
      * Set slug

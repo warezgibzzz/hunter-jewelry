@@ -1,24 +1,24 @@
-shop_index:
+hunter_backend_product_index:
     path:     /
     defaults: { _controller: "HunterBackendBundle:Product:index" }
     methods:  GET
 
-shop_show:
+hunter_backend_product_show:
     path:     /{id}/show
     defaults: { _controller: "HunterBackendBundle:Product:show" }
     methods:  GET
 
-shop_new:
+hunter_backend_product_new:
     path:     /new
     defaults: { _controller: "HunterBackendBundle:Product:new" }
     methods:  [GET, POST]
 
-shop_edit:
+hunter_backend_product_edit:
     path:     /{id}/edit
     defaults: { _controller: "HunterBackendBundle:Product:edit" }
     methods:  [GET, POST]
 
-shop_delete:
+hunter_backend_product_delete:
     path:     /{id}/delete
     defaults: { _controller: "HunterBackendBundle:Product:delete" }
     methods:  DELETE
