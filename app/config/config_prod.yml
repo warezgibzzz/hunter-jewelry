@@ -2,7 +2,8 @@ imports:
     - { resource: config.yml }
 
 parameters:
-    mailer_user: "%env(SENDGRID_USERNAME)%"
+    mailer_user: "%mailer_user%"
+    mailer_password: "%mailer_password%"
 
 doctrine:
     orm:
@@ -10,11 +11,7 @@ doctrine:
         result_cache_driver: apcu
         query_cache_driver: apcu
     dbal:
-        host:     "%env(DB_HOST)%"
-        port:     3306
-        dbname:   "%env(DB_NAME)%"
-        user:     "%env(DB_USER)%"
-        password: "%env(DB_PASS)%"
+        url: "%database_url%"
 
 monolog:
     handlers:
