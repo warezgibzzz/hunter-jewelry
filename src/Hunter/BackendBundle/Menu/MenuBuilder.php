@@ -19,9 +19,38 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('backend.navbar.menu.dashboard', ['route' => 'hunter_backend_homepage']);
-        $menu->addChild('backend.navbar.menu.products', ['route' => 'hunter_backend_product_index']);
-        $menu->addChild('backend.navbar.menu.product_categories', ['route' => 'hunter_backend_product_category_index']);
+        $menu->addChild(
+            'backend.navbar.menu.dashboard',
+            [
+                'route' => 'hunter_backend_homepage'
+            ]
+        );
+        $menu->addChild(
+            'backend.navbar.menu.products',
+            [
+                'route' => 'hunter_backend_product_index',
+                'extras' => [
+                    'routes' => [
+                        ['route' => 'hunter_backend_product_show'],
+                        ['route' => 'hunter_backend_product_new'],
+                        ['route' => 'hunter_backend_product_edit'],
+                    ]
+                ]
+            ]
+        );
+        $menu->addChild(
+            'backend.navbar.menu.product_categories',
+            [
+                'route' => 'hunter_backend_product_category_index',
+                'extras' => [
+                    'routes' => [
+                        ['route' => 'hunter_backend_product_category_show'],
+                        ['route' => 'hunter_backend_product_category_new'],
+                        ['route' => 'hunter_backend_product_category_edit'],
+                    ]
+                ]
+            ]
+        );
 
         return $menu;
     }
