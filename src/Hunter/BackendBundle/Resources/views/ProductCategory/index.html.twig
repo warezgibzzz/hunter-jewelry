@@ -1,43 +1,38 @@
 {% extends 'HunterBackendBundle:layout:base.html.twig' %}
 
 {% block page %}
-    <h1>Product Categories list</h1>
+    <h1>
+        {{ 'backend.product_categories.pages.list'|trans }}
+        <span class="btn-group pull-right">
+            <a href="{{ path('hunter_backend_product_category_new') }}" class="btn btn-success">{{ 'backend.layout.labels.create'|trans }}</a>
+        </span>
+    </h1>
 
-    <table class="table table-bordered table-hover table-striped">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>IsActive</th>
-                <th>Actions</th>
+                <th>{{ 'backend.product_categories.labels.id'|trans }}</th>
+                <th>{{ 'backend.product_categories.labels.name'|trans }}</th>
+                <th>{{ 'backend.product_categories.labels.slug'|trans }}</th>
+                <th>{{ 'backend.product_categories.labels.is_active'|trans }}</th>
+                <th class="text-right">{{ 'backend.layout.labels.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
                 <td><a href="{{ path('hunter_backend_product_category_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
-                <td>{{ category.name }}</td>
+                <td><a href="{{ path('hunter_backend_product_category_show', { 'id': category.id }) }}">{{ category.name }}</a></td>
                 <td>{{ category.slug }}</td>
-                <td>{% if category.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>{% if category.isActive %}{{ 'backend.layout.labels.yes'|trans }}{% else %}{{ 'backend.layout.labels.no'|trans }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('hunter_backend_product_category_show', { 'id': category.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('hunter_backend_product_category_edit', { 'id': category.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <div class="btn-group pull-right">
+                        <a href="{{ path('hunter_backend_product_category_show', { 'id': category.id }) }}" class="btn btn-info">{{ 'backend.layout.labels.show'|trans }}</a>
+                        <a href="{{ path('hunter_backend_product_category_edit', { 'id': category.id }) }}" class="btn btn-success">{{ 'backend.layout.labels.edit'|trans }}</a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('hunter_backend_product_category_new') }}">Create a new category</a>
-        </li>
-    </ul>
 {% endblock %}

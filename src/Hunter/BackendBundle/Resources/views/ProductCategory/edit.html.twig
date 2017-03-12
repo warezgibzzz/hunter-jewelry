@@ -1,21 +1,22 @@
 {% extends 'HunterBackendBundle:layout:base.html.twig' %}
 
 {% block page %}
-    <h1>{{ category.name }} edit</h1>
+    <h1>
+        {{ 'backend.product_categories.pages.edit'|trans({'%category%': category.name}) }}
+        <div class="pull-right">
+            {{ form_start(delete_form) }}
+            <span class="btn-group">
+                <a href="{{ path('hunter_backend_product_category_index') }}"
+                   class="btn btn-info">{{ 'backend.layout.labels.to_list'|trans }}</a>
+                <input type="submit" value="{{ 'backend.layout.labels.delete'|trans }}" class="btn btn-danger">
+            </span>
+            {{ form_end(delete_form) }}
+        </div>
+    </h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="{{ 'backend.layout.labels.save'|trans }}" class="btn btn-success"/>
     {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('hunter_backend_product_category_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <br>
 {% endblock %}

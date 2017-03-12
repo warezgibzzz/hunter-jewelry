@@ -24,10 +24,12 @@ class ProductCategoryType extends AbstractType
                 BooleanType::class,
                 [
                     'transform' => true,
-                    'expanded' => true
+                    'expanded' => true,
+                    'label' => 'backend.product_categories.labels.is_active',
+                    'translation_domain' => 'messages'
                 ]
             )
-            ->add('name', TextType::class);
+            ->add('name', TextType::class, ['label' => 'backend.product_categories.labels.name']);
     }
 
     /**

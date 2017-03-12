@@ -36,3 +36,14 @@ backend:
       is_featured: Вывести в слайдер?
       created_at: Создано
       updated_at: Обновлено
+  product_categories:
+    pages:
+      list: Список товарных категорий
+      create: Создание товарных категорий
+      show: 'Просмотр: %category%'
+      edit: 'Редактирование: %category%'
+    labels:
+      id: ID
+      name: Название
+      slug: Символьный код
+      is_active: Активность
