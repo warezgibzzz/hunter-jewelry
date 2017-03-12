@@ -48,6 +48,11 @@ class Product
     private $updatedAt;
 
     /**
+     * @var ProductCategory
+     */
+    private $category;
+
+    /**
      * Get id
      *
      * @return int
@@ -223,5 +228,29 @@ class Product
     public function getIsFeatured()
     {
         return $this->isFeatured;
+    }
+
+    /**
+     * Set category
+     *
+     * @param ProductCategory $category
+     *
+     * @return Product
+     */
+    public function setCategory(ProductCategory $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return ProductCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

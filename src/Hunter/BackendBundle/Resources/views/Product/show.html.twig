@@ -1,52 +1,55 @@
 {% extends 'HunterBackendBundle:layout:base.html.twig' %}
 
 {% block page %}
-    <h1>Product</h1>
+    <h1>
+        {{ 'backend.products.pages.show'|trans({'%product%': product.name}) }}
+        <span class="btn-group pull-right">
+            <a href="{{ path('hunter_backend_product_index') }}"
+               class="btn btn-info">{{ 'backend.layout.labels.to_list'|trans }}</a>
+        </span>
+    </h1>
 
-    <table class="table table-bordered table-hover table-striped">
+    <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ product.slug }}</td>
-            </tr>
-            <tr>
-                <th>Isactive</th>
-                <td>{% if product.isActive %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{% if product.createdAt %}{{ product.createdAt|date('d.m.Y H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if product.updatedAt %}{{ product.updatedAt|date('d.m.Y H:i:s') }}{% endif %}</td>
-            </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.id'|trans }}</th>
+            <td>{{ product.id }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.name'|trans }}</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.slug'|trans }}</th>
+            <td>{{ product.slug }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.price'|trans }}</th>
+            <td>{{ (product.price / 100)|localizedcurrency('RUB') }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.description'|trans }}</th>
+            <td>{{ product.description }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.is_active'|trans }}</th>
+            <td>{% if product.isActive %}{{ 'backend.layout.labels.yes'|trans }}{% else %}{{ 'backend.layout.labels.no'|trans }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.created_at'|trans }}</th>
+            <td>{% if product.createdAt %}{{ product.createdAt|date('d.m.Y H:i:s') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.products.labels.updated_at'|trans }}</th>
+            <td>{% if product.updatedAt %}{{ product.updatedAt|date('d.m.Y H:i:s') }}{% endif %}</td>
+        </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('hunter_backend_product_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('hunter_backend_product_edit', { 'id': product.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {{ form_start(delete_form) }}
+    <div class="btn-group">
+        <a href="{{ path('hunter_backend_product_edit', { 'id': product.id }) }}" class="btn btn-success">{{ 'backend.layout.labels.edit'|trans }}</a>
+        <input type="submit" value="{{ 'backend.layout.labels.delete'|trans }}" class="btn btn-danger">
+    </div>
+    {{ form_end(delete_form) }}
 {% endblock %}

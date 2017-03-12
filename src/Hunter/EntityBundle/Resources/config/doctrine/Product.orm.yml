@@ -40,6 +40,10 @@ Hunter\EntityBundle\Entity\Product:
             gedmo:
                 timestampable:
                     on: update
+        price:
+            type: decimal
+            nullable: false
+
     manyToOne:
         category:
             targetEntity: Hunter\EntityBundle\Entity\ProductCategory

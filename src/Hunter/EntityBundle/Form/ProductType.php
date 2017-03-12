@@ -2,6 +2,7 @@
 
 namespace Hunter\EntityBundle\Form;
 
+use Braincrafted\Bundle\BootstrapBundle\Form\Type\MoneyType;
 use Hunter\EntityBundle\Entity\Product;
 use Hunter\EntityBundle\Entity\ProductCategory;
 use Sonata\CoreBundle\Form\Type\BooleanType;
@@ -25,7 +26,9 @@ class ProductType extends AbstractType
                 BooleanType::class,
                 [
                     'transform' => true,
-                    'expanded' => true
+                    'expanded' => true,
+                    'label' => 'backend.products.labels.is_active',
+                    'translation_domain' => 'messages'
                 ]
             )
             ->add(
@@ -33,12 +36,31 @@ class ProductType extends AbstractType
                 BooleanType::class,
                 [
                     'transform' => true,
-                    'expanded' => true
+                    'expanded' => true,
+                    'label' => 'backend.products.labels.is_featured',
+                    'translation_domain' => 'messages'
                 ]
             )
-            ->add('name', TextType::class)
-            ->add('category', EntityType::class, ['class' => ProductCategory::class, 'choice_label' => 'name'])
-            ->add('description', TextareaType::class);
+            ->add('name', TextType::class, ['label' => 'backend.products.labels.name'])
+            ->add(
+                'category',
+                EntityType::class,
+                [
+                    'class' => ProductCategory::class,
+                    'choice_label' => 'name',
+                    'label' => 'backend.products.labels.category'
+                ]
+            )
+            ->add(
+                'price',
+                MoneyType::class,
+                [
+                    'currency' => 'RUB',
+                    'divisor' => 100,
+                    'label' => 'backend.products.labels.price'
+                ]
+            )
+            ->add('description', TextareaType::class, ['label' => 'backend.products.labels.description']);
     }
 
     /**

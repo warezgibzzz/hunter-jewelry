@@ -1,3 +1,6 @@
+label_type_yes: Да
+label_type_no: Нет
+
 backend:
   navbar:
     toggle_nav: Показать меню
@@ -5,3 +8,31 @@ backend:
       dashboard: Админка
       products: Товары
       product_categories: Категории товаров
+  layout:
+    labels:
+      actions: Действия
+      yes: Да
+      no: Нет
+      show: Просмотреть
+      edit: Редактировать
+      delete: Удалить
+      save: Сохранить
+      create: Создать новую запись
+      to_list: Вернуться к списку записей
+  products:
+    pages:
+      list: Список товаров
+      create: Создание товара
+      show: 'Просмотр: %product%'
+      edit: 'Редактирование: %product%'
+    labels:
+      id: ID
+      name: Название
+      description: Описание
+      slug: Символьный код
+      price: Цена
+      category: Категория
+      is_active: Активность
+      is_featured: Вывести в слайдер?
+      created_at: Создано
+      updated_at: Обновлено

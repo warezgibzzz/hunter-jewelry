@@ -53,6 +53,11 @@ class Product
     private $category;
 
     /**
+     * @var string
+     */
+    private $price;
+
+    /**
      * Get id
      *
      * @return int
@@ -252,5 +257,29 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
