@@ -46,7 +46,6 @@ class ProductCategoryController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
-            dump($category, $category->getSlug(), $form->getData());
             $em->flush();
 
             return $this->redirectToRoute('hunter_backend_product_category_show', array('id' => $category->getId()));
