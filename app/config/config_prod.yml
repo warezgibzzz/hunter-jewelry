@@ -1,10 +1,6 @@
 imports:
     - { resource: config.yml }
 
-parameters:
-    mailer_user: "%mailer_user%"
-    mailer_password: "%mailer_password%"
-
 doctrine:
     orm:
         metadata_cache_driver: apcu
