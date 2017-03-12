@@ -1,4 +1,4 @@
-framework:
+workflow:
     workflows:
         product_status:
             marking_store:

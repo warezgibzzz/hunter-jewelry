@@ -3,4 +3,5 @@ imports:
     - { resource: braincrafted_bootstrap.yml }
     - { resource: fos_user.yml }
     - { resource: symfony_assetic.yml }
+    - { resource: sonata_seo.yml }
 #    - { resource: symfony_workflow.yml }

@@ -1,0 +1,6 @@
+frontend:
+  menu:
+    nav:
+      shop: Каталог
+      blog: Блог
+      about: О проекте

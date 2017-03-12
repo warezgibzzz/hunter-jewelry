@@ -13,6 +13,22 @@ class PageController extends Controller
      */
     public function indexAction()
     {
+        $productManager = $this->getDoctrine()->getRepository('HunterEntityBundle:Product');
+
+        $featured = $productManager->findBy(['isFeatured' => true], ['createdAt' => 'DESC'], 5);
+        $recent = $productManager->findBy([], ['createdAt' => 'DESC'], 6);
+
+        return [
+            'featured' => $featured,
+            'recent' => $recent
+        ];
+    }
+
+    /**
+     * @Template()
+     */
+    public function aboutAction()
+    {
         return [];
     }
 }

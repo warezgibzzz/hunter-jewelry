@@ -2,8 +2,8 @@
 
 namespace Hunter\BackendBundle\Controller;
 
-use Hunter\EntityBundle\Entity\Product;
-use Hunter\EntityBundle\Form\ProductType;
+use Hunter\EntityBundle\Entity\ProductCategory;
+use Hunter\EntityBundle\Form\ProductCategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  * Product controller.
  *
  */
-class ProductController extends Controller
+class ProductCategoryController extends Controller
 {
     /**
      * Lists all product entities.
@@ -23,10 +23,10 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $products = $em->getRepository('HunterEntityBundle:Product')->findAll();
+        $categories = $em->getRepository('HunterEntityBundle:ProductCategory')->findAll();
 
         return [
-            'products' => $products,
+            'categories' => $categories,
         ];
     }
 
@@ -40,20 +40,20 @@ class ProductController extends Controller
      */
     public function newAction(Request $request)
     {
-        $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
+        $category = new ProductCategory();
+        $form = $this->createForm(ProductCategoryType::class, $category);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($product);
+            $em->persist($category);
+            dump($category, $category->getSlug(), $form->getData());
             $em->flush();
 
-            return $this->redirectToRoute('hunter_backend_product_show', array('id' => $product->getId()));
+            return $this->redirectToRoute('hunter_backend_product_category_show', array('id' => $category->getId()));
         }
 
         return [
-            'product' => $product,
+            'category' => $category,
             'form' => $form->createView(),
         ];
     }
@@ -63,15 +63,15 @@ class ProductController extends Controller
      *
      * @Template()
      *
-     * @param Product $product
+     * @param ProductCategory $category
      * @return array
      */
-    public function showAction(Product $product)
+    public function showAction(ProductCategory $category)
     {
-        $deleteForm = $this->createDeleteForm($product);
+        $deleteForm = $this->createDeleteForm($category);
 
         return [
-            'product' => $product,
+            'category' => $category,
             'delete_form' => $deleteForm->createView(),
         ];
     }
@@ -82,23 +82,24 @@ class ProductController extends Controller
      * @Template()
      *
      * @param Request $request
-     * @param Product $product
+     * @param ProductCategory $category
      * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function editAction(Request $request, Product $product)
+    public function editAction(Request $request, ProductCategory $category)
     {
-        $deleteForm = $this->createDeleteForm($product);
-        $editForm = $this->createForm('Hunter\EntityBundle\Form\ProductType', $product);
+        $em = $this->getDoctrine()->getManager();
+        $deleteForm = $this->createDeleteForm($category);
+        $editForm = $this->createForm(ProductCategoryType::class, $category);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em->flush();
 
-            return $this->redirectToRoute('hunter_backend_product_edit', array('id' => $product->getId()));
+            return $this->redirectToRoute('hunter_backend_product_category_edit', array('id' => $category->getId()));
         }
 
         return [
-            'product' => $product,
+            'category' => $category,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ];
@@ -107,34 +108,34 @@ class ProductController extends Controller
     /**
      * Deletes a product entity.
      * @param Request $request
-     * @param Product $product
+     * @param ProductCategory $category
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteAction(Request $request, Product $product)
+    public function deleteAction(Request $request, ProductCategory $category)
     {
-        $form = $this->createDeleteForm($product);
+        $form = $this->createDeleteForm($category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($product);
+            $em->remove($category);
             $em->flush();
         }
 
-        return $this->redirectToRoute('hunter_backend_product_index');
+        return $this->redirectToRoute('hunter_backend_product_category_index');
     }
 
     /**
      * Creates a form to delete a product entity.
      *
-     * @param Product $product The product entity
+     * @param ProductCategory $product The product entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Product $product)
+    private function createDeleteForm(ProductCategory $product)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('hunter_backend_product_delete', array('id' => $product->getId())))
+            ->setAction($this->generateUrl('hunter_backend_product_category_delete', array('id' => $product->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }

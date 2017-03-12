@@ -27,4 +27,8 @@ Hunter\EntityBundle\Entity\ProductCategory:
     indexes:
         search_idx:
             columns: slug
+    oneToMany:
+        products:
+            targetEntity: Hunter\EntityBundle\Entity\Product
+            mappedBy: category
     lifecycleCallbacks: {  }

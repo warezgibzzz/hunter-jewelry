@@ -1,3 +1,40 @@
+
 hunter_frontend_homepage:
     path:     /
+    methods:  GET
     defaults: { _controller: HunterFrontendBundle:Page:index }
+
+hunter_frontend_about:
+    path:     /
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Page:about }
+
+hunter_frontend_shop_index:
+    path:     /shop
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Shop:index }
+
+hunter_frontend_shop_category:
+    path:     /shop/{slug}
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Shop:category }
+
+hunter_frontend_shop_product:
+    path:     /shop/{category_slug}/{slug}
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Shop:product }
+
+hunter_frontend_blog_index:
+    path:     /blog
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Blog:index }
+
+hunter_frontend_blog_category:
+    path:     /blog/{slug}
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Blog:category }
+
+hunter_frontend_blog_post:
+    path:     /blog/{category_slug}/{slug}
+    methods:  GET
+    defaults: { _controller: HunterFrontendBundle:Blog:post }

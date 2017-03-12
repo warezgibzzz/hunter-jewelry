@@ -21,6 +21,7 @@ class MenuBuilder
 
         $menu->addChild('backend.navbar.menu.dashboard', ['route' => 'hunter_backend_homepage']);
         $menu->addChild('backend.navbar.menu.products', ['route' => 'hunter_backend_product_index']);
+        $menu->addChild('backend.navbar.menu.product_categories', ['route' => 'hunter_backend_product_category_index']);
 
         return $menu;
     }

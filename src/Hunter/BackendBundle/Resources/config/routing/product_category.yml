@@ -1,0 +1,24 @@
+hunter_backend_product_category_index:
+    path:     /
+    defaults: { _controller: "HunterBackendBundle:ProductCategory:index" }
+    methods:  GET
+
+hunter_backend_product_category_show:
+    path:     /{id}/show
+    defaults: { _controller: "HunterBackendBundle:ProductCategory:show" }
+    methods:  GET
+
+hunter_backend_product_category_new:
+    path:     /new
+    defaults: { _controller: "HunterBackendBundle:ProductCategory:new" }
+    methods:  [GET, POST]
+
+hunter_backend_product_category_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HunterBackendBundle:ProductCategory:edit" }
+    methods:  [GET, POST]
+
+hunter_backend_product_category_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HunterBackendBundle:ProductCategory:delete" }
+    methods:  DELETE

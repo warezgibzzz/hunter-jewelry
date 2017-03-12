@@ -33,6 +33,11 @@ class Product
     private $isActive = false;
 
     /**
+     * @var boolean
+     */
+    private $isFeatured = false;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -41,6 +46,11 @@ class Product
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @var ProductCategory
+     */
+    private $category;
 
     /**
      * Get id
@@ -194,5 +204,53 @@ class Product
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set isFeatured
+     *
+     * @param boolean $isFeatured
+     *
+     * @return Product
+     */
+    public function setIsFeatured($isFeatured)
+    {
+        $this->isFeatured = $isFeatured;
+
+        return $this;
+    }
+
+    /**
+     * Get isFeatured
+     *
+     * @return boolean
+     */
+    public function getIsFeatured()
+    {
+        return $this->isFeatured;
+    }
+
+    /**
+     * Set category
+     *
+     * @param ProductCategory $category
+     *
+     * @return Product
+     */
+    public function setCategory(ProductCategory $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return ProductCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

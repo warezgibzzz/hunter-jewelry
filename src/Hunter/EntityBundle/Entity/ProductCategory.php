@@ -2,6 +2,8 @@
 
 namespace Hunter\EntityBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * ProductCategory
  */
@@ -27,6 +29,18 @@ class ProductCategory
      */
     private $isActive = false;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $products;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -108,5 +122,39 @@ class ProductCategory
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * Add product
+     *
+     * @param Product $product
+     *
+     * @return ProductCategory
+     */
+    public function addProduct(Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param Product $product
+     */
+    public function removeProduct(Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }

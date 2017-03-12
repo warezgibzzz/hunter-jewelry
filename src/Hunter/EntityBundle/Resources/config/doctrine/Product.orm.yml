@@ -20,8 +20,13 @@ Hunter\EntityBundle\Entity\Product:
             gedmo:
                 slug:
                     fields:
+                        - id
                         - name
         isActive:
+            type: boolean
+            options:
+                default: 0
+        isFeatured:
             type: boolean
             options:
                 default: 0
@@ -35,6 +40,13 @@ Hunter\EntityBundle\Entity\Product:
             gedmo:
                 timestampable:
                     on: update
+    manyToOne:
+        category:
+            targetEntity: Hunter\EntityBundle\Entity\ProductCategory
+            inversedBy: products
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
     indexes:
         search_idx:
             columns: slug

@@ -4,3 +4,4 @@ backend:
     menu:
       dashboard: Админка
       products: Товары
+      product_categories: Категории товаров

@@ -1,4 +1,6 @@
 services:
-#    hunter_frontend.example:
-#        class: Hunter\FrontendBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+  hunter_frontend.menu_builder:
+    class: Hunter\FrontendBundle\Menu\Builder
+    arguments: ['@knp_menu.factory']
+    tags:
+      - { name: knp_menu.menu_builder, method: createNavMenu, alias: nav }

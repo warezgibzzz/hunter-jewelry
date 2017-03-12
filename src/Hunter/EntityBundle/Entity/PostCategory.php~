@@ -17,6 +17,16 @@ class PostCategory
      */
     private $title;
 
+    /**
+     * @var boolean
+     */
+    private $isActive = false;
+
+    /**
+     * @var string
+     */
+    private $slug;
+
 
     /**
      * Get id
@@ -51,5 +61,52 @@ class PostCategory
     {
         return $this->title;
     }
-}
 
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return PostCategory
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return PostCategory
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+}

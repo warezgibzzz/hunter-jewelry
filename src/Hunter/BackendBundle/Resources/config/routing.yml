@@ -4,4 +4,8 @@ hunter_backend_homepage:
 
 hunter_backend_product:
     resource: "@HunterBackendBundle/Resources/config/routing/product.yml"
-    prefix:   /products
+    prefix:   /shop/products
+
+hunter_backend_product_category:
+    resource: "@HunterBackendBundle/Resources/config/routing/product_category.yml"
+    prefix:   /shop/categories

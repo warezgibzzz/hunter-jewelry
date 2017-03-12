@@ -22,14 +22,14 @@
         "ext-intl": "*",
         "ext-pdo": "*",
         "ext-mysqlnd": "*",
-        "symfony/symfony": "3.2.*",
+        "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/monolog-bundle": "^3.0.2",
         "symfony/polyfill-apcu": "^1.0",
-        "symfony/intl": "^3.2",
+        "symfony/intl": "^2.8",
         "symfony/workflow": "^3.2",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -43,7 +43,9 @@
         "components/jquery": "^3.1",
         "twbs/bootstrap-sass": "^3.3",
         "sonata-project/seo-bundle": "^2.1",
-        "knplabs/knp-menu-bundle": "^2.1"
+        "knplabs/knp-menu-bundle": "^2.1",
+        "fduch/workflow-bundle": "^2.0",
+        "sylius/order-bundle": "^0.19.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
